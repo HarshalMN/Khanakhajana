@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor   // ✅ Needed for Jackson / JSON serialization
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class BookingResponse {

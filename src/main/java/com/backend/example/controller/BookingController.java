@@ -24,9 +24,9 @@ public class BookingController {
         return savedBooking;
 
     }
-    @DeleteMapping("/delete/{id}")  // Delete booking by ID
+    @DeleteMapping("/delete/{id}")
     public String deleteBooking(@PathVariable Long id) {
-        bookingService.deleteBooking(id); // call service method
+        bookingService.deleteBooking(id);
         log.info("Booking with id {} deleted", id);
         return "Booking deleted successfully";
     }

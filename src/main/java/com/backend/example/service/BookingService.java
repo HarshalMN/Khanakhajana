@@ -8,15 +8,13 @@ import com.backend.example.model.BookingResponse;
 import com.backend.example.repository.BookingRepository;
 import com.backend.example.repository.RestaurantRepository;
 import com.backend.example.repository.UserDetailsRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
-@RequiredArgsConstructor // ✅ needed by JPA
+@RequiredArgsConstructor
 public class BookingService {
     private final BookingRepository bookingRepo;
     private final UserDetailsRepository userRepo;

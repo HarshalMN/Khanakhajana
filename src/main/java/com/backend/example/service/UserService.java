@@ -16,11 +16,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-    //    private UserDetailsRepository userDetailsRepository;
-//    private UserDetails userDetails=new UserDetails();
-//    UserService(UserDetailsRepository userDetailsRepository){
-//        this.userDetailsRepository=userDetailsRepository;
-//    }
     private final UserDetailsRepository userRepo;
 
     public UserDetails registerUser(RegistrationRequest dto) {

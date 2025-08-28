@@ -5,8 +5,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookingRequest {
-    private String customerName;   // username
-    private Long restaurantId;  // restaurantId instead of name
+    private String customerName;
+    private Long restaurantId;
     private String date;
     private String time;
     private int guests;

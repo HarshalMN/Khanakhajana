@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@RequiredArgsConstructor   // constructor injection for UserService
+@RequiredArgsConstructor
 @Slf4j
 public class UserController {
 
     private final UserService userService;
 
-    // Register new user
+
     @PostMapping("/register")
     public ResponseEntity<UserDetails> register(@RequestBody RegistrationRequest request) {
         UserDetails savedUser = userService.registerUser(request);
@@ -27,7 +27,7 @@ public class UserController {
         return ResponseEntity.ok(savedUser);
     }
 
-    // Get all users
+
     @GetMapping
     public ResponseEntity<List<RegistrationResponse>> getAllUsers() {
         List<RegistrationResponse> users = userService.getAllUsers();
@@ -35,7 +35,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    // Delete user by ID
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
