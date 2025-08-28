@@ -1,6 +1,6 @@
 package com.backend.example.entity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @Entity
@@ -9,14 +9,19 @@ public class BookingsDetails {
     @Id
     @SequenceGenerator(name="booking_id_seq", sequenceName = "booking_id_seq",allocationSize = 1,initialValue = 15)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "booking_id_seq")
-    private Integer booking_id;
+    @Column(name = "booking_id")
+    private Long id;
 
-    private Integer rest_id;
-    private Integer user_id;
-    private Integer table_id;
-    private String open_time;
-    private String close_time;
-    private String status;
-    private Integer people;
+    private String customerName;
+    private String Date;
+    private String time;
+    private int guests;
 
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id",nullable = false)
+    private RestaurantDetails restaurant;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetails user;
 }
