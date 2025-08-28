@@ -1,20 +1,27 @@
 package com.backend.example.entity;
-import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Data
 @Entity
 @Table(name = "bookings")
 public class BookingsDetails {
     @Id
-    private Integer booking_id;
-    private Integer rest_id;   // FK to restaurant
-    private Integer user_id;   // FK to user
-    private Integer table_id;  // FK to tables
-    private Date open_time;
-    private Date close_time;
-    private String status;     // enum values: pending, confirm, cancelled
-    private Integer people;
+    @SequenceGenerator(name="booking_id_seq", sequenceName = "booking_id_seq",allocationSize = 1,initialValue = 15)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "booking_id_seq")
+    @Column(name = "booking_id")
+    private Long id;
 
+    private String customerName;
+    private String Date;
+    private String time;
+    private int guests;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id",nullable = false)
+    private RestaurantDetails restaurant;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetails user;
 }

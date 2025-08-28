@@ -1,18 +1,21 @@
 package com.backend.example.entity;
-import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="restaurant")
 public class RestaurantDetails {
     @Id
-    private Integer rest_id;
+    @SequenceGenerator(name = "rest_seq", sequenceName = "rest_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rest_seq")
+    @Column(name = "restaurant_id")
+    private Long id;
     private String name;
-    private String address;
     private String cuisine;
-    private Date open_time;
-    private Date close_time;
-    private Integer no_of_tables;
+    private double rating;
 }
